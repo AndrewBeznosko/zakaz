@@ -204,7 +204,8 @@ button:hover {
     z-index: -1;
     transform: skewX(-10deg);
 }
-@media screen and (min-width: 976px){
+
+@media screen and (min-width: 976px) {
     .header__content .desc p {
         max-width: 430px;
     }
@@ -315,7 +316,7 @@ button:hover {
 }
 
 .tarif .list {
-    padding: 25px 15px 30px; 
+    padding: 25px 15px 30px;
 }
 
 .tarif .list p {
@@ -384,7 +385,9 @@ button:hover {
 }
 
 .custom-control .old_price {
-    opacity: 0.7
+    opacity: 0.7;
+    min-width: 48px;
+    display: inline-block;
 }
 
 .custom-control .old_price::before {
@@ -404,13 +407,13 @@ button:hover {
     top: 0.45rem
 }
 
-.custom-control-input:checked ~ .custom-control-label::before {
+.custom-control-input:checked~.custom-control-label::before {
     color: #fff;
     border-color: #cc8b0c;
     background-color: #ffd53d
 }
 
-.custom-control-input:focus ~ .custom-control-label::before {
+.custom-control-input:focus~.custom-control-label::before {
     box-shadow: 0 0 0 0.2rem rgba(255, 213, 61, 0.25)
 }
 
@@ -464,6 +467,7 @@ a.btn:hover {
 @media (max-width: 767.98px) {
     header {
         padding: 20px 0 50px;
+        overflow: hidden;
     }
 
     h1 {
@@ -476,7 +480,7 @@ a.btn:hover {
     }
 
     form {
-        padding: 10px;
+        padding: 20px 10px;
         margin-bottom: 30px
     }
 
@@ -544,9 +548,7 @@ a.btn:hover {
     position: relative;
 }
 
-.btn-hover:hover {
-
-}
+.btn-hover:hover {}
 
 .btn-hover {
     color: #fff;
@@ -565,9 +567,11 @@ a.btn:hover {
         background-position: 0 0;
 
     }
+
     50% {
         background-position: 100% 0;
     }
+
     100% {
         background-position: 0 0;
 
@@ -576,8 +580,37 @@ a.btn:hover {
 
 /* -----------------------  redesign zakaz ---------------------------- */
 
+.form_view_name {
+    min-width: 82px;
+    display: inline-block;
+}
+
+.discount_txt {
+    font-size: 18px;
+}
+
 @media (min-width: 1200px) {
     .sec_tarifs .container {
         max-width: 1199px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .form_view_name {
+        min-width: 100px;
+    }
+
+    .discount_txt {
+        display: none;
+    }
+
+    .custom-control .custom-control-label {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .discount {
+        margin-left: auto;
     }
 }

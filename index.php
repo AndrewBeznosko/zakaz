@@ -26,7 +26,7 @@ if (isset($_GET["tag"])) {
 </head>
 
 <body class="relative" data-spy="scroll" data-target=".navbar-landing">
-    <header>
+    <header id="header">
         <div class="container">
             <h1>
                 ВЫБЕРИТЕ СВОЙ ВАРИАНТ УЧАСТИЯ <br>
@@ -39,18 +39,22 @@ if (isset($_GET["tag"])) {
                     <input type="email" name="email" placeholder="введите ваш e-mail">
 
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
-                        <label class="custom-control-label" for="customRadio1"> Базовый &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="old_price">$69</span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $49 - 30% <span style="font-size:18px">скидка</span></label>
+                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio1"> <span class="form_view_name"><?php echo $packets[0]["form_view_name"]?></span> <span class="old_price">$<?php echo $packets[0]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $packets[0]["price"]?> <span class="discount">- 30%</span> <span class="discount_txt">скидка</span></label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio2"> Премиум &nbsp;&nbsp;&nbsp;<span class="old_price">$149</span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $99 - 33% <span style="font-size:18px">скидка</span></label>
+                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" checked>
+                        <label class="custom-control-label" for="customRadio2"> <span class="form_view_name"><?php echo $packets[1]["form_view_name"]?></span>  <span class="old_price">$<?php echo $packets[1]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $packets[1]["price"]?> <span class="discount">- 33%</span> <span class="discount_txt">скидка</span></label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio3"> <span class="form_view_name"><?php echo $packets[2]["form_view_name"]?></span> <span class="old_price">$<?php echo $packets[2]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $packets[2]["price"]?> <span class="discount">- 27%</span> <span class="discount_txt">скидка</span></label>
                     </div>
 
                     <input type="hidden" name="c2cFormId" value="docsandchecklists" />
-                    <input type="hidden" name="packet" class="form-packet" id="packet-all-form" value="<?php echo $packets[0]["crm_name"]?>" />
-                    <input type="hidden" name="price" class="form-price" value="<?php echo $packets[0]["price"]?>" />
-                    <input type="hidden" name="convert_rub" class="form-price-rub" value="<?php echo $packets[0]["price_rub"]?>" />
+                    <input type="hidden" name="packet" class="form-packet" id="packet-all-form" value="<?php echo $packets[1]["crm_name"]?>" />
+                    <input type="hidden" name="price" class="form-price" value="<?php echo $packets[1]["price"]?>" />
+                    <input type="hidden" name="convert_rub" class="form-price-rub" value="<?php echo $packets[1]["price_rub"]?>" />
                     <?php if (!empty($tag)) echo '<input type="hidden" name="add_tag" value="' . $tag . '" />' ?>
                     <button class=" btn-hover color-4" type="submit">Заказать <img src="img/btn_arr.png" alt="btn_arr"></button>
                 </form>
@@ -76,7 +80,7 @@ if (isset($_GET["tag"])) {
             <div class="tarifs_wrapp">
                 <div class="tarif">
                     <div class="head">
-                        <h3>Тариф Базовый</h3>
+                        <h3>Тариф <?php echo $packets[0]["form_view_name"]?></h3>
                     </div>
                     <div class="list">
                         <p>Запись тренинга в видеоформате</p>
@@ -88,15 +92,15 @@ if (isset($_GET["tag"])) {
                         <p>Набор Чек-листов (чек-лист Горничной, чек-лист Что должно быть в квартире, Правила проживания в квартире, Должностные инструкции для менеджера)</p>
                     </div>
                     <div class="old_price_wrapp">
-                        <span class="old_price">$ 69</span>
+                        <span class="old_price">$ <?php echo $packets[0]["price_high"]?></span>
                         <span class="discount">-30%</span>
                     </div>
-                    <div class="new_price">$ 49</div>
-                    <a href="#" class="btn btn-hover color-4">КУПИТЬ <img src="img/btn_arr_2.png" alt="btn_arr"></a>
+                    <div class="new_price">$ <?php echo $packets[0]["price"]?></div>
+                    <a href="#header" class="btn btn-hover color-4">КУПИТЬ <img src="img/btn_arr_2.png" alt="btn_arr"></a>
                 </div>
                 <div class="tarif">
                     <div class="head">
-                        <h3>Тариф Стандарт</h3>
+                        <h3>Тариф <?php echo $packets[1]["form_view_name"]?></h3>
                     </div>
                     <div class="list">
                         <p>Запись тренинга в видеоформате</p>
@@ -120,15 +124,15 @@ if (isset($_GET["tag"])) {
                         <p>WhatsApp чат - сообщество всех наших учеников (возможность найти себе наставника, партнера, совместно взять горничную или/и менеджера на работу, сдавать квартиры друг друга)</p>
                     </div>
                     <div class="old_price_wrapp">
-                        <span class="old_price">$ 149</span>
+                        <span class="old_price">$ <?php echo $packets[1]["price_high"]?></span>
                         <span class="discount">-33%</span>
                     </div>
-                    <div class="new_price">$ 99</div>
-                    <a href="#" class="btn btn-hover color-4">КУПИТЬ <img src="img/btn_arr_2.png" alt="btn_arr"></a>
+                    <div class="new_price">$ <?php echo $packets[1]["price"]?></div>
+                    <a href="#header" class="btn btn-hover color-4">КУПИТЬ <img src="img/btn_arr_2.png" alt="btn_arr"></a>
                 </div>
                 <div class="tarif">
                     <div class="head">
-                        <h3>Тариф VIP</h3>
+                        <h3>Тариф <?php echo $packets[2]["form_view_name"]?></h3>
                     </div>
                     <div class="list">
                         <p>Запись тренинга в видеоформате</p>
@@ -158,11 +162,11 @@ if (isset($_GET["tag"])) {
                         <p>Возможность консультирования в круглосуточном режиме по всем вопросам</p>
                     </div>
                     <div class="old_price_wrapp">
-                        <span class="old_price">$ 149</span>
+                        <span class="old_price">$ <?php echo $packets[2]["price_high"]?></span>
                         <span class="discount">-33%</span>
                     </div>
-                    <div class="new_price">$ 99</div>
-                    <a href="#" class="btn btn-hover color-4">КУПИТЬ <img src="img/btn_arr_2.png" alt="btn_arr"></a>
+                    <div class="new_price">$ <?php echo $packets[2]["price"]?></div>
+                    <a href="#header" class="btn btn-hover color-4">КУПИТЬ <img src="img/btn_arr_2.png" alt="btn_arr"></a>
                 </div>
             </div>
         </div>
@@ -281,6 +285,12 @@ if (isset($_GET["tag"])) {
             $('[name="packet"]').val('<?php echo $packets[1]["crm_name"]?>');
             $('[name="price"]').val('<?php echo $packets[1]["price"]?>');
             $('[name="convert_rub"]').val('<?php echo $packets[1]["price_rub"]?>');
+        });
+        $('#customRadio3').change(function() {
+            // $('[name="c2cFormId"]').val('coursevip');
+            $('[name="packet"]').val('<?php echo $packets[2]["crm_name"]?>');
+            $('[name="price"]').val('<?php echo $packets[2]["price"]?>');
+            $('[name="convert_rub"]').val('<?php echo $packets[2]["price_rub"]?>');
         });
 
     });
