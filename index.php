@@ -52,27 +52,27 @@ if ($gameOver) {
             </h1>
             <div class="header__content">
                 <form id="main_form" action="https://api.bpa.bz/api.client2crm/" method="POST" novalidate="novalidate">
-                    <input type="text" name="firstname" placeholder="Введите ваше имя">
-                    <input type="text" name="phone" placeholder="Введите ваш телефон">
-                    <input type="email" name="email" placeholder="введите ваш e-mail">
+                    <input type="text" name="firstname" placeholder="Введите ваше имя" required minlength="3">
+                    <input type="text" name="phone" placeholder="Введите ваш телефон" required minlength="10">
+                    <input type="email" name="email" placeholder="введите ваш e-mail" required>
 
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio1"> <span class="form_view_name"><?php echo $packets[0]["form_view_name"]?></span> <span class="old_price">$<?php echo $packets[0]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $price0?> <span class="discount">- 30%</span> <span class="discount_txt">скидка</span></label>
+                        <label class="custom-control-label" for="customRadio1"> <span class="form_view_name"><?php echo $packets[0]["form_view_name"]?></span> <span class="old_price">$<?php echo $packets[0]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $price0?> <span class="discount">- 22%</span> <span class="discount_txt">скидка</span></label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" checked>
-                        <label class="custom-control-label" for="customRadio2"> <span class="form_view_name"><?php echo $packets[1]["form_view_name"]?></span>  <span class="old_price">$<?php echo $packets[1]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $price1?> <span class="discount">- 33%</span> <span class="discount_txt">скидка</span></label>
+                        <label class="custom-control-label" for="customRadio2"> <span class="form_view_name"><?php echo $packets[1]["form_view_name"]?></span>  <span class="old_price">$<?php echo $packets[1]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $price1?> <span class="discount">- 22%</span> <span class="discount_txt">скидка</span></label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio3"> <span class="form_view_name"><?php echo $packets[2]["form_view_name"]?></span> <span class="old_price">$<?php echo $packets[2]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $price2?> <span class="discount">- 27%</span> <span class="discount_txt">скидка</span></label>
+                        <label class="custom-control-label" for="customRadio3"> <span class="form_view_name"><?php echo $packets[2]["form_view_name"]?></span> <span class="old_price">$<?php echo $packets[2]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $price2?> <span class="discount">- 33%</span> <span class="discount_txt">скидка</span></label>
                     </div>
 
                     <input type="hidden" name="c2cFormId" value="docsandchecklists" />
                     <input type="hidden" name="packet" class="form-packet" id="packet-all-form" value="<?php echo $packets[1]["crm_name"]?>" />
-                    <input type="hidden" name="price" class="form-price" value="<?php echo $packets[1]["price"]?>" />
-                    <input type="hidden" name="convert_rub" class="form-price-rub" value="<?php echo $packets[1]["price_rub"]?>" />
+                    <input type="hidden" name="price" class="form-price" value="<?php echo $price1 ?>" />
+                    <input type="hidden" name="convert_rub" class="form-price-rub" value="<?php echo $priceRub1 ?>" />
                     <?php if (!empty($tag)) echo '<input type="hidden" name="add_tag" value="' . $tag . '" />' ?>
                     <button class=" btn-hover color-4" type="submit">Заказать <img src="img/btn_arr.png" alt="btn_arr"></button>
                 </form>
@@ -164,7 +164,7 @@ if ($gameOver) {
                     </div>
                     <div class="old_price_wrapp">
                         <span class="old_price">$ <?php echo $packets[0]["price_high"]?></span>
-                        <span class="discount">-30%</span>
+                        <span class="discount">-22%</span>
                     </div>
                     <div class="new_price">$ <?php echo $price0 ?></div>
                     <a href="#header" class="btn btn-hover color-4">КУПИТЬ <img src="img/btn_arr_2.png" alt="btn_arr"></a>
@@ -196,7 +196,7 @@ if ($gameOver) {
                     </div>
                     <div class="old_price_wrapp">
                         <span class="old_price">$ <?php echo $packets[1]["price_high"]?></span>
-                        <span class="discount">-33%</span>
+                        <span class="discount">-22%</span>
                     </div>
                     <div class="new_price">$ <?php echo $price1 ?></div>
                     <a href="#header" class="btn btn-hover color-4">КУПИТЬ <img src="img/btn_arr_2.png" alt="btn_arr"></a>
