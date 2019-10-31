@@ -1,0 +1,583 @@
+@font-face {
+    font-family: 'Futura PT Book';
+    src: url("../fonts/FuturaPT-Book.eot");
+    src: url("../fonts/FuturaPT-Book.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Futura PT Heavy';
+    src: url("../fonts/FuturaPT-Heavy.eot");
+    src: url("../fonts/FuturaPT-Heavy.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaPT-Heavy.woff") format("woff"), url("../fonts/FuturaPT-Heavy.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url("../fonts/BebasNeueRegular.eot");
+    src: local("Bebas Neue Regular"), local("../fonts/BebasNeueRegular"), url("../fonts/BebasNeueRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/BebasNeueRegular.woff") format("woff"), url("../fonts/BebasNeueRegular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url("../fonts/BebasNeueBold.eot");
+    src: local("Bebas Neue Bold"), local("../fonts/BebasNeueBold"), url("../fonts/BebasNeueBold.eot?#iefix") format("embedded-opentype"), url("../fonts/BebasNeueBold.woff") format("woff"), url("../fonts/BebasNeueBold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url("../fonts/BebasNeueLight.eot");
+    src: local("Bebas Neue Light"), local("../fonts/BebasNeueLight"), url("../fonts/BebasNeueLight.eot?#iefix") format("embedded-opentype"), url("../fonts/BebasNeueLight.woff") format("woff"), url("../fonts/BebasNeueLight.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url("../fonts/BebasNeue-Thin.eot");
+    src: local("Bebas Neue Thin"), local("../fonts/BebasNeue-Thin"), url("../fonts/BebasNeue-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/BebasNeue-Thin.woff") format("woff"), url("../fonts/BebasNeue-Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Bebas Neue Book';
+    src: url("../fonts/BebasNeueBook.eot");
+    src: local("Bebas Neue Book"), local("../fonts/BebasNeueBook"), url("../fonts/BebasNeueBook.eot?#iefix") format("embedded-opentype"), url("../fonts/BebasNeueBook.woff") format("woff"), url("../fonts/BebasNeueBook.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+header {
+    min-height: 100vh;
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 50px 0 80px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center
+}
+
+h1 {
+    font-size: 49px;
+    color: #ffffff;
+    font-family: "Bebas Neue";
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 35px
+}
+
+h1 span {
+    display: inline-block;
+    position: relative;
+    color: #350572;
+    z-index: 2
+}
+
+h1 span::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -2%;
+    width: 104%;
+    height: 100%;
+    background-color: #ffd53d;
+    display: inline-block;
+    z-index: -1;
+    transform: skewX(-10deg)
+}
+
+form {
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.502);
+    padding: 34px 34px 30px;
+    display: flex;
+    flex-direction: column;
+    max-width: 413px;
+    width: 100%
+}
+
+input {
+    border-width: 2px;
+    border-color: #fff;
+    border-style: solid;
+    border-radius: 5px;
+    box-shadow: inset 0 10px 10px 0 rgba(0, 0, 0, 0.11);
+    background: none;
+    padding: 16px 32px;
+    margin-bottom: 27px;
+    font-family: 'Futura PT Heavy';
+    font-size: 17px;
+    color: #fff;
+    line-height: 1.2
+}
+
+input::-webkit-input-placeholder {
+    font-family: 'Futura PT Heavy';
+    font-size: 17px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.2
+}
+
+button {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 0 #cc8b0c;
+    background-color: #ffd53d;
+    font-size: 17px;
+    font-family: 'Futura PT Heavy';
+    color: #350572;
+    text-transform: uppercase;
+    line-height: 1.2;
+    padding: 22px 32px;
+    margin-top: 12px
+}
+
+button img {
+    display: inline-block;
+    margin-right: 10px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+button:hover {
+    background-color: #e2bc32
+}
+
+.header__content {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 1000px;
+    margin: 0 auto
+}
+
+.header__content .desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.header__content .desc p {
+    font-size: 20.64px;
+    font-family: 'Futura PT Heavy';
+    color: #fff;
+    line-height: 1.2;
+    text-align: center;
+    margin-top: 40px;
+    /* border-radius: 5px; */
+    /* background-color: rgba(255, 206, 0, 0.302); */
+    padding: 20px 34px;
+    /* border: solid 2px #fff; */
+    margin-bottom: 0;
+    position: relative;
+    color: #350572;
+    z-index: 2;
+}
+
+.header__content .desc p::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -2%;
+    width: 104%;
+    height: 100%;
+    background-color: #ffd53d;
+    display: inline-block;
+    z-index: -1;
+    transform: skewX(-10deg);
+}
+@media screen and (min-width: 976px){
+    .header__content .desc p {
+        max-width: 430px;
+    }
+}
+
+.header__content .desc p span {
+    font-family: 'Futura PT Book';
+    line-height: 27px;
+    /* color: #ffd53d; */
+    display: block;
+    margin-top: 15px
+}
+
+.header__condition {
+    margin: 50px auto 0;
+    max-width: 637px;
+    width: 100%;
+    border: dotted 4px #ffce00;
+    padding: 15px 15px 20px
+}
+
+.header__condition h2 {
+    font-size: 23px;
+    color: #ffd53d;
+    font-family: 'Futura PT Heavy';
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 30px
+}
+
+.header__condition .plan {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between
+}
+
+.header__condition .item {
+    font-size: 17px;
+    color: #fff;
+    font-family: 'Futura PT Heavy';
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.2
+}
+
+.header__condition .item span {
+    color: #ffd53d;
+    font-size: 28px
+}
+
+.header__condition .item p {
+    margin: 5px 0 0
+}
+
+.sec_tarifs {
+    padding: 76px 0 127px
+}
+
+.sec_title {
+    font-size: 49.12px;
+    font-family: "Bebas Neue";
+    color: #33096d;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 100px;
+    text-align: center
+}
+
+.tarifs_wrapp {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start
+}
+
+.tarif {
+    background-color: #fff;
+    box-shadow: 0 10px 32px 0 rgba(45, 45, 45, 0.21);
+    max-width: 370px;
+    padding-bottom: 45px;
+    margin-bottom: 40px
+}
+
+.tarif .head {
+    padding: 31px 15px 28px;
+    background-color: #ffd53d
+}
+
+.tarif h3 {
+    font-size: 49.12px;
+    font-family: "Bebas Neue";
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0;
+    color: #350572;
+}
+
+.tarif .list {
+    padding: 25px 15px 30px; 
+}
+
+.tarif .list p {
+    position: relative;
+    padding-left: 30px;
+    font-size: 18px;
+    font-family: 'Futura PT Book';
+    color: #33096d;
+    line-height: 2;
+    margin-bottom: 10px
+}
+
+.tarif .list p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-image: url("../img/ok.png")
+}
+
+.tarif .old_price_wrapp {
+    text-align: center;
+    color: #959595;
+    font-size: 37.12px;
+    font-family: "Bebas Neue";
+    font-weight: bold
+}
+
+.tarif .old_price_wrapp span {
+    display: inline-block;
+    width: 120px;
+    text-align: center
+}
+
+.tarif .new_price {
+    text-align: center;
+    color: #381270;
+    font-size: 70px;
+    font-family: "Bebas Neue";
+    font-weight: bold
+}
+
+.old_price {
+    position: relative
+}
+
+.old_price::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-20deg);
+    background-color: #fa3030;
+    height: 3px;
+    width: 75px
+}
+
+.custom-control .custom-control-label {
+    font-family: "Bebas Neue";
+    font-weight: bold;
+    color: #381270;
+    font-size: 24px
+}
+
+.custom-control .old_price {
+    opacity: 0.7
+}
+
+.custom-control .old_price::before {
+    height: 2px;
+    width: 45px
+}
+
+.custom-control-label::after {
+    width: 1.2rem;
+    height: 1.2rem;
+    top: 0.45rem
+}
+
+.custom-control-label::before {
+    width: 1.2rem;
+    height: 1.2rem;
+    top: 0.45rem
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    color: #fff;
+    border-color: #cc8b0c;
+    background-color: #ffd53d
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(255, 213, 61, 0.25)
+}
+
+a.btn {
+    max-width: 300px;
+    width: 100%;
+    height: 70px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #ffce00;
+    font-size: 18px;
+    font-family: 'Futura PT Heavy';
+    color: #fff;
+    border-radius: 0;
+    margin: 15px auto 5px;
+    position: relative;
+    z-index: 2
+}
+
+a.btn img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10%
+}
+
+a.btn::before {
+    content: '';
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 106%;
+    height: 131%;
+    border-width: 1px;
+    border-color: #ffb400;
+    border-style: solid;
+    z-index: -1;
+}
+
+a.btn:hover {
+    color: #fff;
+    background-color: #e2bc32
+}
+
+@media (max-width: 767.98px) {
+    header {
+        padding: 20px 0 50px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 35px
+    }
+
+    h1 span {
+        font-size: 28px;
+    }
+
+    form {
+        padding: 10px;
+        margin-bottom: 30px
+    }
+
+    .header__content {
+        flex-direction: column
+    }
+
+    .header__condition {
+        margin: 20px auto 0
+    }
+
+    .header__condition .plan {
+        flex-direction: column
+    }
+
+    .header__condition img {
+        transform: rotate(90deg);
+        margin: 15px 0
+    }
+
+    .sec_tarifs {
+        padding: 40px 0 60px
+    }
+
+    .sec_title {
+        font-size: 45px;
+        margin-bottom: 50px
+    }
+
+    .tarif h3 {
+        font-size: 36px
+    }
+
+    .tarif .list {
+        padding: 20px 15px
+    }
+
+    .tarif .list p {
+        font-size: 20px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        padding-left: 31px
+    }
+
+    .tarif .list p::before {
+        width: 22px;
+        height: 22px;
+        background-size: cover
+    }
+
+    a.btn {
+        max-width: 265px;
+        height: 60px
+    }
+}
+
+.btn-hover.color-4 {
+    background-image: linear-gradient(-45deg, #ffd53d, #ef9d43, #fed13e, #ffd53d, #ffaf58, #ffd53d, #ffd53d, #cc8b0c, #ffe174, #ffd53d);
+    box-shadow: 0 4px 0 #cc8b0c;
+    border-radius: 5px;
+    font-size: 20px;
+    letter-spacing: .5px;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+}
+
+.btn-hover:hover {
+
+}
+
+.btn-hover {
+    color: #fff;
+    border: none;
+    background-size: 700% 1400%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    animation: gradient 25s linear infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 0;
+
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+
+    }
+}
+
+/* -----------------------  redesign zakaz ---------------------------- */
+
+@media (min-width: 1200px) {
+    .sec_tarifs .container {
+        max-width: 1199px;
+    }
+}

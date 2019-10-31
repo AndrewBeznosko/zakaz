@@ -3,35 +3,19 @@ $config = array (
     array(
           'crm_name' => 'Базовый',
           'form_view_name' => 'Базовый',
-          'price' => 347,
-          'price_rub' => 22900,
-          'price_high' => 447,
-          'price_rub_high' => 28600,
+          'price' => 49,
+          'price_rub' => 3135,
+        //   'price_high' => 397,
+        //   'price_rub_high' => 26500,
           ),
     array(
-        'crm_name' => 'Стандартный',
-        'form_view_name' => 'Стандарт',
-        'price' => 697,
-        'price_rub' => 44600,
-        'price_high' => 897,
-        'price_rub_high' => 54400,
-        ),
-    array(
-        'crm_name' => 'VIP',
-        'form_view_name' => 'VIP',
-        'price' => 1997,
-        'price_rub' => 127800,
-        'price_high' => 2997,
-        'price_rub_high' => 191800, 
-        ),
-    array(
-        'crm_name' => 'Предоплата',
-        'form_view_name' => 'Предоплата 5000р.',
-        'price' => 75,
-        'price_rub' => 5000,
-        'price_high' => 75,
-        'price_rub_high' => 5000, 
-        ),
+        'crm_name' => 'Premium',
+        'form_view_name' => 'Премиум',
+        'price' => 99,
+        'price_rub' => 6335,
+        // 'price_high' => 797,
+        // 'price_rub_high' => 53000,
+        )
     );
 
 if (isset($_GET["get_price"])) {
