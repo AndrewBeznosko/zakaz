@@ -221,10 +221,14 @@ button:hover {
 
 .header__condition {
     margin: 50px auto 0;
-    max-width: 637px;
+    max-width: 470px;
     width: 100%;
     border: dotted 4px #ffce00;
-    padding: 15px 15px 20px
+    padding: 15px 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .header__condition h2 {
@@ -234,7 +238,7 @@ button:hover {
     text-align: center;
     text-transform: uppercase;
     line-height: 1.2;
-    margin-bottom: 30px
+    margin-bottom: 0px
 }
 
 .header__condition .plan {
@@ -579,6 +583,13 @@ a.btn:hover {
 }
 
 /* -----------------------  redesign zakaz ---------------------------- */
+
+.body-gameover .tarif .old_price_wrapp,
+.body-gameover .discount,
+.body-gameover .discount_txt,
+.body-gameover .old_price {
+    display: none;
+}
 
 .form_view_name {
     min-width: 82px;

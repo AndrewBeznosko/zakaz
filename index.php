@@ -8,6 +8,24 @@ if (isset($_COOKIE["bpa_packets"])) {
 if (isset($_GET["tag"])) {
     $tag = $_GET["tag"];
 } else $tag = null;
+
+if ($gameOver) {
+    $price0 = $packets[0]["price_high"]; 
+    $price1 = $packets[1]["price_high"];
+    $price2 = $packets[2]["price_high"];
+
+    $priceRub0 = $packets[0]["price_rub_high"];
+    $priceRub1 = $packets[1]["price_rub_high"];
+    $priceRub2 = $packets[2]["price_rub_high"];
+} else {
+    $price0 = $packets[0]["price"];
+    $price1 = $packets[1]["price"];
+    $price2 = $packets[2]["price"];
+
+    $priceRub0 = $packets[0]["price_rub"];
+    $priceRub1 = $packets[1]["price_rub"];
+    $priceRub2 = $packets[2]["price_rub"];
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -25,7 +43,7 @@ if (isset($_GET["tag"])) {
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body class="relative" data-spy="scroll" data-target=".navbar-landing">
+<body class="relative  <?php if ($gameOver) echo 'body-gameover';?>" data-spy="scroll" data-target=".navbar-landing">
     <header id="header">
         <div class="container">
             <h1>
@@ -40,15 +58,15 @@ if (isset($_GET["tag"])) {
 
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio1"> <span class="form_view_name"><?php echo $packets[0]["form_view_name"]?></span> <span class="old_price">$<?php echo $packets[0]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $packets[0]["price"]?> <span class="discount">- 30%</span> <span class="discount_txt">скидка</span></label>
+                        <label class="custom-control-label" for="customRadio1"> <span class="form_view_name"><?php echo $packets[0]["form_view_name"]?></span> <span class="old_price">$<?php echo $packets[0]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $price0?> <span class="discount">- 30%</span> <span class="discount_txt">скидка</span></label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" checked>
-                        <label class="custom-control-label" for="customRadio2"> <span class="form_view_name"><?php echo $packets[1]["form_view_name"]?></span>  <span class="old_price">$<?php echo $packets[1]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $packets[1]["price"]?> <span class="discount">- 33%</span> <span class="discount_txt">скидка</span></label>
+                        <label class="custom-control-label" for="customRadio2"> <span class="form_view_name"><?php echo $packets[1]["form_view_name"]?></span>  <span class="old_price">$<?php echo $packets[1]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $price1?> <span class="discount">- 33%</span> <span class="discount_txt">скидка</span></label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio3"> <span class="form_view_name"><?php echo $packets[2]["form_view_name"]?></span> <span class="old_price">$<?php echo $packets[2]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $packets[2]["price"]?> <span class="discount">- 27%</span> <span class="discount_txt">скидка</span></label>
+                        <label class="custom-control-label" for="customRadio3"> <span class="form_view_name"><?php echo $packets[2]["form_view_name"]?></span> <span class="old_price">$<?php echo $packets[2]["price_high"]?></span> &nbsp;<img src="img/btn_arr.png" alt="btn_arr">&nbsp; $<?php echo $price2?> <span class="discount">- 27%</span> <span class="discount_txt">скидка</span></label>
                     </div>
 
                     <input type="hidden" name="c2cFormId" value="docsandchecklists" />
@@ -69,6 +87,59 @@ if (isset($_GET["tag"])) {
                         </span>
                     </p>
                 </div>
+            </div>
+            <div class="header__condition">
+                <h2>Специальная цена действует еще:</h2>
+                <p id="timer"></p>
+
+                <div id="timerValues">
+                    <div>
+                        <span class="days">00</span>
+                        <div class="smalltext">Дни</div>
+                    </div>
+                    <div>
+                        <span class="hours">00</span>
+                        <div class="smalltext">Часы</div>
+                    </div>
+                    <div>
+                        <span class="minutes">00</span>
+                        <div class="smalltext">Минуты</div>
+                    </div>
+                    <div>
+                        <span class="seconds">00</span>
+                        <div class="smalltext">Секунды</div>
+                    </div>
+                </div>
+                <style>
+                    #timerValues{
+                        font-family: sans-serif;
+                        color: #000;
+                        display: inline-block;
+                        font-weight: 100;
+                        text-align: center;
+                        font-size: 30px;
+                    }
+
+                    #timerValues > div{
+                        padding: 10px;
+                        border-radius: 3px;
+                        background: #FEEC1B;
+                        display: inline-block;
+                    }
+
+                    #timerValues div > span{
+                        padding: 15px;
+                        border-radius: 3px;
+                        background: rgb(195, 182, 31);
+                        display: inline-block;
+                        min-width: 65px;
+                    }
+
+                    .smalltext{
+                        padding-top: 5px;
+                        font-size: 16px;
+                    }
+                </style>
             </div>
         </div>
     </header> <!-- section-header.// -->
@@ -95,7 +166,7 @@ if (isset($_GET["tag"])) {
                         <span class="old_price">$ <?php echo $packets[0]["price_high"]?></span>
                         <span class="discount">-30%</span>
                     </div>
-                    <div class="new_price">$ <?php echo $packets[0]["price"]?></div>
+                    <div class="new_price">$ <?php echo $price0 ?></div>
                     <a href="#header" class="btn btn-hover color-4">КУПИТЬ <img src="img/btn_arr_2.png" alt="btn_arr"></a>
                 </div>
                 <div class="tarif">
@@ -127,7 +198,7 @@ if (isset($_GET["tag"])) {
                         <span class="old_price">$ <?php echo $packets[1]["price_high"]?></span>
                         <span class="discount">-33%</span>
                     </div>
-                    <div class="new_price">$ <?php echo $packets[1]["price"]?></div>
+                    <div class="new_price">$ <?php echo $price1 ?></div>
                     <a href="#header" class="btn btn-hover color-4">КУПИТЬ <img src="img/btn_arr_2.png" alt="btn_arr"></a>
                 </div>
                 <div class="tarif">
@@ -165,20 +236,70 @@ if (isset($_GET["tag"])) {
                         <span class="old_price">$ <?php echo $packets[2]["price_high"]?></span>
                         <span class="discount">-33%</span>
                     </div>
-                    <div class="new_price">$ <?php echo $packets[2]["price"]?></div>
+                    <div class="new_price">$ <?php echo $price2 ?></div>
                     <a href="#header" class="btn btn-hover color-4">КУПИТЬ <img src="img/btn_arr_2.png" alt="btn_arr"></a>
                 </div>
             </div>
         </div>
     </section>
+
+
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="//api.webds.net/client2crm_v2/sdk/v2/Contact2Amo/js/jquery.dsClient2CrmServer.v1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="//chitau.api.webds.net/plgform/js/dsPhoneFormatInput_min.js"></script>
+    <script src="//chitau.api.webds.net/plgform/js/userAgent.0.0.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/easytimer.js@3/dist/easytimer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2/min/moment-with-locales.min.js"></script>
+    <script>
+        var timer = new easytimer.Timer();
+        moment.locale('ru');
 
-    <script type="text/javascript" src="//api.webds.net/client2crm_v2/sdk/v2/Contact2Amo/js/jquery.dsClient2CrmServer.v1.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js">
+        var now = moment();
+        if (Cookies.get('oldPriceTill') == undefined) {
+          var date = moment().add(2, 'days');
+          // var date = moment().add(10, 'seconds');
+          Cookies.set('oldPriceTill', date, {
+            expires: 365
+          });
+        } else {
+          var date = Cookies.get('oldPriceTill');
+        }
+        //var date = "2019-02-22 11:00:00";
+        var until = moment(date);
+        // var timerTo = now.to(until, 's');
+        var timerTo = now.diff(until, 'seconds') * (-1);
+        console.log(timerTo);
+
+        if (timerTo > 0) {
+          timer.start({
+            countdown: true,
+            precision: 'seconds',
+            startValues: {
+              seconds: timerTo
+            }
+          });
+          timer.addEventListener('secondsUpdated', function (e) {
+            $('#timerValues .days').html(timer.getTimeValues().days);
+            $('#timerValues .hours').html(timer.getTimeValues().hours);
+            $('#timerValues .minutes').html(timer.getTimeValues().minutes);
+            $('#timerValues .seconds').html(timer.getTimeValues().seconds);
+          });
+        } else gameOver();
+
+
+        timer.addEventListener('targetAchieved', function (e) {
+          gameOver();
+        });
+
+        function gameOver() {
+          Cookies.set('bpa_packets', 'gameOver', {
+            expires: 365
+          });
+        }
     </script>
-    <script type="text/javascript" src="//chitau.api.webds.net/plgform/js/dsPhoneFormatInput_min.js"></script>
-    <script type="text/javascript" src="//chitau.api.webds.net/plgform/js/userAgent.0.0.1.min.js"></script>
     <script>
     //Формы
     var FormIDs = "main_form";
@@ -276,21 +397,21 @@ if (isset($_GET["tag"])) {
 
         $('#customRadio1').change(function() {
             // $('[name="c2cFormId"]').val('coursestndart');
-            $('[name="packet"]').val('<?php echo $packets[0]["crm_name"]?>');
-            $('[name="price"]').val('<?php echo $packets[0]["price"]?>');
-            $('[name="convert_rub"]').val('<?php echo $packets[0]["price_rub"]?>');
+            $('[name="packet"]').val('<?php echo $packets[0]["crm_name"] ?>');
+            $('[name="price"]').val('<?php echo $price0 ?>');
+            $('[name="convert_rub"]').val('<?php echo $priceRub0 ?>');
         });
         $('#customRadio2').change(function() {
             // $('[name="c2cFormId"]').val('coursevip');
-            $('[name="packet"]').val('<?php echo $packets[1]["crm_name"]?>');
-            $('[name="price"]').val('<?php echo $packets[1]["price"]?>');
-            $('[name="convert_rub"]').val('<?php echo $packets[1]["price_rub"]?>');
+            $('[name="packet"]').val('<?php echo $packets[1]["crm_name"] ?>');
+            $('[name="price"]').val('<?php echo $price1 ?>');
+            $('[name="convert_rub"]').val('<?php echo $priceRub1 ?>');
         });
         $('#customRadio3').change(function() {
             // $('[name="c2cFormId"]').val('coursevip');
-            $('[name="packet"]').val('<?php echo $packets[2]["crm_name"]?>');
-            $('[name="price"]').val('<?php echo $packets[2]["price"]?>');
-            $('[name="convert_rub"]').val('<?php echo $packets[2]["price_rub"]?>');
+            $('[name="packet"]').val('<?php echo $packets[2]["crm_name"] ?>');
+            $('[name="price"]').val('<?php echo $price2 ?>');
+            $('[name="convert_rub"]').val('<?php echo $priceRub2 ?>');
         });
 
     });
