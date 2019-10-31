@@ -624,4 +624,13 @@ a.btn:hover {
     .discount {
         margin-left: auto;
     }
+
+    #timerValues > div {
+        padding: 0 !important;
+    }
+
+    .smalltext {
+        font-size: 14px !important;
+        padding-bottom: 5px;
+    }
 }
